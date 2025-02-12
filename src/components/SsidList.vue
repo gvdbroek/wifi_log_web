@@ -11,7 +11,7 @@
   tags.value = await apiService.getTags();
 
   const bssids = ref(null);
-  await  apiService.fetchBssids(bssids);
+  await apiService.fetchBssids(bssids);
 
   const tagsCopy = toRaw(tags);
   const bssidsCopy = toRaw(bssids);

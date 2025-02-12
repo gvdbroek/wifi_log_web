@@ -1,9 +1,9 @@
 const apiHeaders = {
     headers: {
-    "x-key": import.meta.env.API_KEY
+    "x-key": import.meta.env.VITE_API_KEY
     }
 }
-const apiUrl = "http://127.0.0.1:8000";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export const apiService = {
   getStatus(){
@@ -39,7 +39,22 @@ export const apiService = {
   },
   async fetchReport(year:number, month:number){
     let r = await fetch(`${apiUrl}/report?year=${year}&month=${month}`, apiHeaders);
-    return await r.json();
+    let dat = await r.json();
+    return dat;
+  },
+
+  async setBssidTag(bssid:string, tag_id:number){
+    fetch(`${apiUrl}/bssidtag`, {
+      method: "POST",
+      body: JSON.stringify({
+        bssid_id: bssid,
+        tag_id: tag_id
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "x-key": import.meta.env.VITE_API_KEY
+      }
+});
 
 }
 
