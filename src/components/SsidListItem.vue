@@ -1,5 +1,5 @@
 <template>
-  <li v-if="show">
+  <li v-if="show" class="underline">
     <p>{{props.bssid.ssid}}
 
     <TagSelector :bssid=bssid :tags=tags></TagSelector></p>

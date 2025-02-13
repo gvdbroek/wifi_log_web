@@ -14,7 +14,7 @@
   <Suspense>
     <template #default>
     <main>
-          <SsidList></SsidList>
+        <SsidList></SsidList>
         <Report></Report>
     </main>
     </template>

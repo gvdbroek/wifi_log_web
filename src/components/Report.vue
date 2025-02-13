@@ -2,38 +2,36 @@
   <Suspense>
     <template #default>
       <div>
-        <p>
-          <span>Werkdagen in maand:</span> <span>{{ numWorkdaysInMonth }}</span>
-        </p>
-        <p>
-          <span>Dagen thuis:</span> <span>{{ numWorkdaysSpentAtHome }}</span>
-        </p>
-        <p>
-          <span>Dagen kantoor:</span> <span>{{ numWorkdaysSpentInOffice }}</span>
-        </p>
-        <p>
-          <span>Dagen nog thuis te werken:</span> <span>{{ (numWorkdaysInMonth / 2) - numWorkdaysSpentAtHome  }}</span>
-        </p>
+        <div class=flex>
+        <Card title="Werkdagen" :value="numWorkdaysInMonth"></Card>
+        <Card title="Thuis" :value="numWorkdaysSpentAtHome"></Card>
+        <Card title="Kantoor" :value="numWorkdaysSpentInOffice"></Card>
+        <Card title="Nog Thuis" :value="(numWorkdaysInMonth / 2) - numWorkdaysSpentAtHome "></Card>
+        </div>
       </div>
-      <!-- <ul> -->
-      <!--   <li v-for="day in data"> -->
-      <!--     {{day}} -->
-      <!--   </li> -->
-      <!-- </ul> -->
     </template>
   </Suspense>
 
 </template>
 
 <script setup lang="ts">
+  const urlParams = new URLSearchParams(window.location.search);
+  let yearParam = parseInt(urlParams.get('year'), 10)
+  let monthParam = parseInt(urlParams.get('month'), 10)
+  if(isNaN(yearParam)) yearParam=2025;
+  if(isNaN(monthParam)) monthParam=1;
+
+  console.log(yearParam)
+  console.log(monthParam)
 
   import {ref,toRaw} from 'vue';
   import {apiService} from '@/services/apiService';
+  import Card from './Card.vue';
 
   const reportData = ref(null);
   const tags = ref(null);
 
-  reportData.value = await apiService.fetchReport(2025,2)
+  reportData.value = await apiService.fetchReport(yearParam,1)
   tags.value = await apiService.getTags()
 
   let tagDict = {}

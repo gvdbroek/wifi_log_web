@@ -2,7 +2,7 @@
   <Suspense>
     <template #default>
       <span v-for="tag in tags" :key="tag.id" >
-        <button
+        <button class="rounded-md bg-slate-800 py-1 px-2 border-transparent text-center text-sm shadow-md hover:shadow-lg hover:bg-slate-700"
           @click="applyTag(bssid, tag)"
           v-if="!hasTag(tag) && !isTagged()">
           add {{tag.name}}
@@ -26,9 +26,10 @@
   const reactivebssid = reactive(props.bssid);
 
   function isTagged(){
-    console.log(`Has ${props.bssid.tags.length} tags`)
+    return false 
+    // console.log(`Has ${props.bssid.tags.length} tags`)
     const ht = (props.bssid.tags.length != 0)
-    console.log(ht);
+    // console.log(ht);
     return ht;
     // return props.bssid.tags.includes(hideTag);
   }
