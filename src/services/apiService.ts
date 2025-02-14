@@ -1,9 +1,11 @@
+
 const apiHeaders = {
     headers: {
     "x-key": import.meta.env.VITE_API_KEY
     }
 }
 const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = window.__RUNTIME_CONFIG__.VITE_API_URL || "fallback";
 
 export const apiService = {
   getStatus(){

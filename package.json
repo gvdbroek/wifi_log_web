@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "vite",
-    "build": "vue-cli-service build",
+    "build": "vite build",
     "build-electron": "vue-cli-service build && electron",
     "preview": "vite preview",
     "build-only": "vite build",
