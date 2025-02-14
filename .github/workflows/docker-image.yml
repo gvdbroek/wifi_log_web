@@ -7,6 +7,7 @@ env:
   REGISTRY: ghcr.io
   NAMESPACE: ${{ github.actor }}
   IMAGE_NAME: wifi-log-web
+  TAG: $(date +%s)
 jobs:
 
   build:
@@ -16,4 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --target dev --build-arg API_URL=lol --tag wifi-log-web:$(date +%s)
+      run: docker build . --file Dockerfile --target dev --build-arg API_URL=lol --tag ghcr.io/${{ github.actor }}/wifi-log-web:latest
+    - name: ghcr login
+      run: echo ${{ GITHUB_TOKEN }} | docker login $REGISTRY -u $USERNAME --password-stdin
+    - name: ghrc push
+      run: docker push ghcr.io/${{ github.actor }}/wifi-log-web:latest
+    
