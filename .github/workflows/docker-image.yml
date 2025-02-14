@@ -19,7 +19,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --target dev --build-arg API_URL=lol --tag ghcr.io/${{ github.actor }}/wifi-log-web:latest
     - name: ghcr login
-      run: echo ${{ GITHUB_TOKEN }} | docker login $REGISTRY -u $USERNAME --password-stdin
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login $REGISTRY -u $USERNAME --password-stdin
     - name: ghrc push
       run: docker push ghcr.io/${{ github.actor }}/wifi-log-web:latest
     
