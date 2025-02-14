@@ -1,0 +1,19 @@
+name: Docker Image CI
+on:
+  workflow_dispatch
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  USERNAME: ${{ github.actor }}
+  REGISTRY: ghcr.io
+  NAMESPACE: ${{ github.actor }}
+  IMAGE_NAME: wifi-log-web
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --target dev --build-arg API_URL=lol --tag wifi-log-web:$(date +%s)
