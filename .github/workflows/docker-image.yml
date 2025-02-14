@@ -9,7 +9,7 @@ env:
   IMAGE_NAME: wifi-log-web
   TAG: $(date +%s)
   
-  API_URL: https://www.waystone.be/wifi_log
+  API_URL: https://www.waystone.be/wifi_log/api
   API_KEY: PLACEHOLDER_KEY
 jobs:
 
