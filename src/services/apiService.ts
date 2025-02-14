@@ -6,7 +6,6 @@ const apiHeaders = {
 }
 const apiUrl = import.meta.env.VITE_API_URL;
 console.log(`Api url: ${apiUrl}`)
-// const apiUrl = window.__RUNTIME_CONFIG__.VITE_API_URL || "fallback";
 
 export const apiService = {
   getStatus(){
