@@ -20,11 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile \
-          --target prod \
-          --build-arg API_URL=$API_URL \
-          --build-arg API_KEY=$API_KEY \
-          --tag ghcr.io/${{ github.actor }}/wifi-log-web:latest
+      run: docker build . --file Dockerfile --target prod --build-arg API_URL=$API_URL --build-arg API_KEY=$API_KEY --tag ghcr.io/${{ github.actor }}/wifi-log-web:latest
     - name: ghcr login
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login $REGISTRY -u $USERNAME --password-stdin
     - name: ghrc push
