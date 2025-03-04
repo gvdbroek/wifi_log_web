@@ -37,11 +37,15 @@ jobs:
         run: |
           echo ${{ steps.version.outputs.previous-version }}
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --target prod --build-arg BASE_URL=$BASE_URL --build-arg API_URL=$API_URL --build-arg API_KEY=$API_KEY --tag ghcr.io/${{ github.actor }}/wifi-log-web:latest
+        run: docker build . --file Dockerfile --target prod --build-arg BASE_URL=$BASE_URL --build-arg API_URL=$API_URL --build-arg API_KEY=$API_KEY --tag ghcr.io/${{ github.actor }}/wifi-log-web:latest --tag ghcr.io/${{ github.actor }}/wifi-log-web:${{ steps.version.outputs.version }}
+        
       - name: ghcr login
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login $REGISTRY -u $USERNAME --password-stdin
-      - name: ghrc push
+      - name: ghrc push latest
+        run: docker push ghcr.io/${{ github.actor }}/wifi-log-web:latest
+      - name: ghrc push versioned
         run: docker push ghcr.io/${{ github.actor }}/wifi-log-web:${{ steps.version.outputs.version }}
+        
         
    # runs-on: ubuntu-latest
 
