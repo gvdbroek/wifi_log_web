@@ -1,8 +1,10 @@
 <template>
-  <li v-if="show" class="underline">
-    <p>{{props.bssid.ssid}}
-
-    <TagSelector :bssid=bssid :tags=tags></TagSelector></p>
+  <li v-if="show" class="ps-5 text-xl sm:pb-4 ml-10">
+    <div class="columns-2">
+    <p>&gt; {{props.bssid.ssid}}</p>
+    <p class="ps-4 text-sm">{{props.bssid.bssid}}</p>
+      <TagSelector :bssid=bssid :tags=tags></TagSelector>
+    </div>
   </li>
 </template>
 

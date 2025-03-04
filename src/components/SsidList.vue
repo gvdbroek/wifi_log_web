@@ -1,6 +1,8 @@
 <template>
-  <h1 class="text-xl font-black" v-if="filteredBssids.length > 0">Unknown Networks</h1>
-  <SsidListItem v-for="bssid in filteredBssids" :bssid=bssid :tags=tagsCopy ></SsidListItem>
+      <h2 class="mb-6 text-2xl">Unknown Networks</h2><br/>
+      <ul class="divide-y divide-gray-600">
+      <SsidListItem v-for="bssid in filteredBssids" :bssid=bssid :tags=tagsCopy ></SsidListItem>
+  </ul>
 </template>
 
 <script setup lang="ts">

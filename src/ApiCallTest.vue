@@ -1,26 +1,28 @@
-<script setup lang="ts">
-  import SsidList from './components/SsidList.vue';
-  import Report from './components/Report.vue';
-  import {ref} from 'vue';
-  const count = ref(0);
-  function increment(){
-    count.value++;
-
-  }
-
-
-</script>
 <template>
   <Suspense>
     <template #default>
     <main>
-        <SsidList></SsidList>
-        <Report></Report>
+        <h1 class="mb-6 text-4xl">Wifi-Log</h1>
+        <p class="mb-6">Bleep bloop, welcome to wifi log</p><br/>
+        <DatePicker/><br/>
+        <Report/><br/>
+        <SsidList/><br/>
     </main>
     </template>
   </Suspense>
-
 </template>
+
+<script setup lang="ts">
+  import SsidList from './components/SsidList.vue';
+  import Report from './components/Report.vue';
+  import DatePicker from './components/DatePicker.vue';
+
+  import {ref} from 'vue';
+  const count = ref(0);
+  function increment(){
+    count.value++;
+  }
+</script>
 
 <!-- <style scoped> -->
 <!-- header { -->

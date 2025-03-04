@@ -1,28 +1,14 @@
 import './assets/main.css'
 
-
 import {createApp } from 'vue'
 import ApiCallTest from './ApiCallTest.vue'
 
-// Vuetify
-// import 'vuetify/styles'
-// import { createVuetify } from 'vuetify'
-// import * as components from 'vuetify/components'
-// import * as directives from 'vuetify/directives'
-// import { aliases, mdi } from 'vuetify/iconsets/mdi'
-// const vuetify = createVuetify({
-//   components,
-//   directives,
-//   icons:{
-//     defaultSet:'mdi',
-//     aliases,
-//     sets:{
-//       mdi,
-//     }
-//   }
-// })
+// Date picker plugin
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 
 let app = createApp(ApiCallTest);
+app.component('VueDatePicker', VueDatePicker);
 app.mount('#app')
 // app.use(vuetify).mount('#app')
 // let app = createApp(ApiCallTest).mount('#app')
