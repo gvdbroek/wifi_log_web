@@ -23,10 +23,5 @@
     show.value= false;
   }
 
-  // if(!props.tags.Contains(hideTag)){
-  //   show.value = false;
-  //
-  // }
-
 </script>
 
