@@ -53,7 +53,7 @@
   const reportData = ref(null);
   const tags = ref(null);
 
-  reportData.value = await apiService.fetchReport(yearParam,1)
+  reportData.value = await apiService.fetchReport(yearParam,monthParam)
   tags.value = await apiService.getTags()
 
   let tagDict = {}

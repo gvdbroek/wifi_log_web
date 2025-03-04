@@ -5,10 +5,13 @@ WORKDIR /usr/src/app
 # allows us to call binaries like.. i dunno, vite I suppose
 ENV PATH=/usr/src/node_modules/.bin:$PATH
 
-ARG VITE_API_URL
+ARG API_URL
+ARG API_KEY
+ARG BASE_URL
 
-ENV VITE_API_URL=$VITE_API_URL
-ENV VITE_API_KEY=$VITE_API_KEY
+ENV VITE_API_URL=$API_URL
+ENV VITE_API_KEY=$API_KEY
+ENV VITE_BASE_URL=$BASE_URL
 
 COPY package*.json ./
 
