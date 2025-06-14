@@ -2,17 +2,22 @@
     <header class="float-right">
       <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="25" height="25" /> <p class="text-xs">made with vue &lt;3</p>
     </header>
-  <Suspense>
-    <template #default>
-    <main>
-        <h1 class="mb-6 text-4xl">Wifi-Log</h1>
-        <p class="mb-6">Bleep bloop, welcome to wifi log</p><br/>
-        <DatePicker/><br/>
-        <Report/><br/>
-        <SsidList/><br/>
-    </main>
+  <main>
+    <h1 class="mb-6 text-4xl">Wifi-Log</h1>
+    <p class="mb-6">Bleep bloop, welcome to wifi log</p><br/>
+    <DatePicker/><br/>
+    <Suspense>
+      <template #default>
+          <div>
+            <Report/><br/>
+            <SsidList/><br/>
+          </div>
     </template>
-  </Suspense>
+    <template #fallback>
+      <h2>loading report...</h2>
+    </template>
+    </Suspense>
+  </main>
 </template>
 
 <script setup lang="ts">
