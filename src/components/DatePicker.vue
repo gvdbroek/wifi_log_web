@@ -27,7 +27,7 @@
       console.log("Updated!")
       var searchParams = new URLSearchParams(window.location.search);
       searchParams.set("year", date.value.year);
-      searchParams.set("month", date.value.month);
+      searchParams.set("month", date.value.month + 1);
       window.location.search = searchParams.toString();
   }
 
