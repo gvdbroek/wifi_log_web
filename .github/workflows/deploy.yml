@@ -13,8 +13,13 @@ jobs:
           host: ${{ secrets.LINODE_HOST }}
           username: gh_deploy
           key: ${{ secrets.LINODE_DEPLOY_KEY }}
+          envs: GHCR_TOKEN,GHCR_USERNAME
           script: |
             cd /home/gh_deploy
             ./deploy.sh
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHCR_USERNAME: ${{ github.actor }}
+            
             
                 
