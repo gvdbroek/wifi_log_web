@@ -14,9 +14,7 @@ jobs:
           username: gh_deploy
           key: ${{ secrets.LINODE_DEPLOY_KEY }}
           script: |
-            echo " hi " 
-            pwd
-            /home/gh_deploy
+            cd /home/gh_deploy
             ./deploy.sh
             
                 
