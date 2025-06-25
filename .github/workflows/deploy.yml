@@ -1,10 +1,6 @@
 name: Deploy
 on:
   workflow_dispatch:
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  USERNAME: ${{ github.actor }}
-  
 jobs:
   deploy:
     #if: github.event.pull_request.merged == true
@@ -18,5 +14,6 @@ jobs:
           username: gh_deploy
           key: ${{ secrets.LINODE_DEPLOY_KEY }}
           script: |
-            cd /home/gh_deploy/deploy.sh
+            ./home/gh_deploy/deploy.sh
+            
                 
