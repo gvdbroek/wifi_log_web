@@ -13,6 +13,8 @@ jobs:
           host: ${{ secrets.LINODE_HOST }}
           username: gh_deploy
           key: ${{ secrets.LINODE_DEPLOY_KEY }}
-          script: /home/gh_deploy/deploy.sh
+          script: |
+            cd /home/gh_deploy
+            ./deploy.sh
             
                 
